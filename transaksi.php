@@ -1,3 +1,47 @@
+
+<style>
+a {
+  background-color:#0985e3; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:7px;
+}
+
+
+.btn {
+  background-color:red; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:7px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #07a394;}
+
+</style>
 <?php
 include 'koneksi.php';
 
@@ -17,7 +61,7 @@ if ($result->num_rows > 0) {
             <td>".$row["nama_customer"]."</td>
             <td>".$row["tgl_sewa"]."</td>
             <td>".$row["tgl_kembali"]."</td>
-            <td><a href='edit_transaksi.php?id=".$row["id_transaksi"]."'>Edit</a> | <a href='hapus_transaksi.php?id=".$row["id_transaksi"]."'>Hapus</a></td>
+            <td><a href='edit_transaksi.php?id=".$row["id_transaksi"]."'>Edit</a> | <a class='btn' href='hapus_transaksi.php?id=".$row["id_transaksi"]."'>Hapus</a></td>
         </tr>";
     }
     echo "</table>";
