@@ -42,7 +42,7 @@ $result_customer = $conn->query($sql_customer);
             }
             input[type=submit] {
                 width: 100%;
-                background-color: #4CAF50;
+                background-color: #11a7b8;
                 color: white;
                 padding: 14px 20px;
                 margin: 8px 0;
@@ -51,7 +51,7 @@ $result_customer = $conn->query($sql_customer);
                 cursor: pointer;
             }
             input[type=submit]:hover {
-                background-color: #45a049;
+                background-color: #79989c;
             }
         </style>
     </head>

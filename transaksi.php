@@ -36,7 +36,7 @@ table {
  td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 3px solid #ddd;
 }
 
 tr:hover {background-color: #07a394;}
