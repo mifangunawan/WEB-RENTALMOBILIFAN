@@ -1,3 +1,6 @@
+<?php
+session_start ();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +20,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
 </style>
+<script>
+  function confirmLogout(event){
+    event.preventDefault();
+    var confirmLogout = confirm("Apakah Anda Yakin Ingin Logout?");
+    if (confirmLogout) {
+      window.location.href = event.target.href;
+    }
+  }
+  </script>
 </head>
 <body class="w3-black">
 
@@ -36,11 +48,16 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-eye w3-xxlarge"></i>
     <p>Data Mobil</p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-
+  <div class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-eye w3-xxlarge"></i>
+<?php
+  if(isset($_SESSION['username'])){
+    echo '<a href="logout.php" onclick="confirmLogout(event)"> <i data-faether="log-out"></i> logout</a>';
+  } else{
+    echo '<a href="login.php">  <i data-faether="log-in"></i> login</a>';
+  }
+  ?>
+  </div>
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -208,6 +225,7 @@ body {
   background-color: #f1f1f1;
 }
 </style>
+
     
 <h2>Rental Mobil</h2>
 <br>
