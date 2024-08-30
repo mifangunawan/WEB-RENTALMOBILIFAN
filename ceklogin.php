@@ -12,7 +12,7 @@ $data=mysqli_fetch_array($query);
 $_SESSION['username']=$data['username'];
 $_SESSION['password']=$data['password'];
 $_SESSION['LOGIN']="LOGIN";
-header("location:rentalmobil.php");
+header("location:dashboard.php");
 }else{echo"<br>Login gagal";
 		echo"<a href=login.php>kembali</a>";
 }

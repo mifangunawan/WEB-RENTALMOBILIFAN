@@ -7,6 +7,7 @@ session_start();
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
   <title>Mobil</title>
   <style>
     * {
@@ -75,7 +76,8 @@ session_start();
       display: inline-block;
       margin-bottom: 20px;
     }
-  </style>
+</style>
+  
   <script>
     function confirmLogout(event){
       event.preventDefault();
@@ -101,10 +103,14 @@ session_start();
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo '<div class="column">';
-            echo '<div class="card">';
-            // echo '<img src="#" alt="' . $row["nama_mobil"] . '">';
+      while ($row = $result->fetch_assoc()) {
+        echo '<div class="column">';
+        echo '<div class="card">';
+        if (!empty($row["gambar"])) {
+          echo '<img src="' . $row["gambar"] . '" alt="Gambar Mobil">';
+        } else {
+          echo '<img src="P.jpg" alt="Gambar tidak tersedia">';
+        }
             echo '<div class="container">';
             echo '<h4><b>' . $row["nama_mobil"] . '</b></h4>';
             echo '<p>tahun: ' . $row["tahun"] . '</p>';
