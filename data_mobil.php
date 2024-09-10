@@ -91,6 +91,32 @@ $result = $conn->query($sql);
             display: inline-block;
             margin-top: 10px;
         }
+        .buton {
+            padding: 10px 15px;
+            background-color:#092beb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            }
+            .buton2 {
+            padding: 10px 15px;
+            background-color: #f70505;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            }
     </style>
 </head>
 
@@ -100,14 +126,14 @@ $result = $conn->query($sql);
         <a href="admin.php">Dashboard</a>
         <a href="data_mobil.php">Data Mobil</a>
         <a href="#customer">Data Customer</a>
-        <a href="tambahtrans.php">Data Transaksi</a>
+        <a href="transaksi.php">Data Transaksi</a>
         <a href="logout.php" onclick="confirmLogout(event)">Logout</a>
     </div>
 
     <div class="content">
         <div class="navbar">
             <div class="menu">
-                <a href="index.php">Home</a>
+                <a href="#">Home</a>
                 <a href="index.php">Mobil</a>
                 <a href="about.php">About</a>
             </div>
@@ -123,6 +149,7 @@ $result = $conn->query($sql);
         </div>
         <h1>Data Mobil</h1>
         <a class="btn" href="tambah.php">+ Tambah Data Mobil</a>
+
         <table>
             <thead>
                 <tr>
@@ -132,20 +159,25 @@ $result = $conn->query($sql);
                     <th>Tahun</th>
                     <th>Harga</th>
                     <th>Kategori</th>
+                    <th>aksi </th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row['id_mobil'] . "</td>";
-                        echo "<td>" . $row['nama_mobil'] . "</td>";
-                        echo "<td>" . $row['warna'] . "</td>";
-                        echo "<td>" . $row['tahun'] . "</td>";
-                        echo "<td>" . $row['harga'] . "</td>";
-                        echo "<td>" . $row['nama_kategori'] . "</td>";
-                        echo "</tr>";
+                        echo "<tr>
+                        <td>".$row["id_mobil"]."</td>
+                        <td>".$row["nama_mobil"]."</td>
+                        <td>".$row["warna"]."</td>
+                        <td>".$row["tahun"]."</td>
+                        <td>".$row["harga"]."</td>
+                        <td>".$row["nama_kategori"]."</td>
+                        <td><a class='buton' href='edit_mobil.php?id=".$row["id_mobil"]."'>Edit</a> | <a class='buton2' href='hapus_mobil.php?id=".$row["id_mobil"]."'>Hapus</a></td>
+                    </tr>";
+                     
+
+                        
                     }
                 } else {
                     echo "<tr><td colspan='7'>Tidak ada data mobil yang ditemukan</td></tr>";
@@ -166,4 +198,4 @@ $result = $conn->query($sql);
     </script>
 </body>
 
-</html
+</html>

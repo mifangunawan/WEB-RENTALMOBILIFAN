@@ -45,13 +45,13 @@
 
 <body>
   <div class="container">
-    <h2>Tambah Mobil</h2>
+    <h2> + Tambah Mobil</h2>
     <form action="proses_tambah.php" method="post">
       <label for="nama_mobil">Merk</label>
       <input type="text" id="nama_mobil" name="nama_mobil" required>
 
       <label for="tahun">tahun</label>
-      <input type="text" id="tahun" name="tahun" required>
+      <input type="number" id="tahun" name="tahun" required>
 
       <label for="warna">warna</label>
       <input type="text" id="warna" name="warna" required>
