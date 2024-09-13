@@ -52,7 +52,7 @@ if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
 <body>
 
     <div class="sidebar">
-        <a href="#dashboard">Dashboard</a>
+        <a href="dashboard.php">Dashboard</a>
         <a href="data_mobil.php">Data Mobil</a>
         <a href="#customer">Data Customer</a>
         <a href="transaksi.php">Data Transaksi</a>

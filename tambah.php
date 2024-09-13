@@ -3,6 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">p
   <title>Tambah Mobil</title>
   <style>
     body {
@@ -40,10 +41,132 @@
       padding: 10px 15px;
       border-radius: 4px;
     }
+
+    .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #0b218f;
+            padding-top: 20px;
+            overflow-x: hidden;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f2f2f2;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #214d63;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #96b0b5;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            background-color: #036ffc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .buton {
+            padding: 10px 15px;
+            background-color:#092beb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            }
+            .buton2 {
+            padding: 10px 15px;
+            background-color: #f70505;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            }
   </style>
 </head>
 
 <body>
+  
+<div class="sidebar">
+        <a href="dashboard.php">Dashboard</a>
+        <a href="data_mobil.php">Data Mobil</a>
+        <a href="#customer">Data Customer</a>
+        <a href="transaksi.php">Data Transaksi</a>
+        <a href="logout.php" onclick="confirmLogout(event)">Logout</a>
+    </div>
+
+    <div class="content">
+        <div class="navbar">
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="index.php">Mobil</a>
+                <a href="about.php">About</a>
+            </div>
+            <div class="user-actions">
+                <div class="username">
+                    <?php
+                    if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+                        echo 'Hai, ' . $_SESSION['username'];
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
   <div class="container">
     <h2> + Tambah Mobil</h2>
     <form action="proses_tambah.php" method="post">
@@ -65,6 +188,8 @@
       
         <?php
         include 'koneksi.php';
+
+        
         $sql = "SELECT id_kategori, nama_kategori FROM kategori";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -74,7 +199,9 @@
         } else {
             echo '<option value="">Tidak ada jenis tersedia</option>';
         }
+        
         $conn->close();
+        
         ?>
       </select>
 

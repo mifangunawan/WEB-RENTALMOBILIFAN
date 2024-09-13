@@ -123,7 +123,7 @@ $result = $conn->query($sql);
 <body>
 
     <div class="sidebar">
-        <a href="admin.php">Dashboard</a>
+        <a href="dashboard.php">Dashboard</a>
         <a href="data_mobil.php">Data Mobil</a>
         <a href="#customer">Data Customer</a>
         <a href="transaksi.php">Data Transaksi</a>

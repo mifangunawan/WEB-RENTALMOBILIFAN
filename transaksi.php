@@ -106,7 +106,7 @@ tr:hover {background-color: #07a394;}
 
 </style>
 <div class="sidebar">
-        <a href="admin.php">Dashboard</a>
+        <a href="dashboard.php">Dashboard</a>
         <a href="data_mobil.php">Data Mobil</a>
         <a href="#customer">Data Customer</a>
         <a href="transaksi.php">Data Transaksi</a>
@@ -135,6 +135,8 @@ tr:hover {background-color: #07a394;}
 
 <?php
 include 'koneksi.php';
+
+
 
 $sql = "SELECT transaksi.id_transaksi, mobil.nama_mobil, customer.nama_customer, transaksi.tgl_sewa, transaksi.tgl_kembali
         FROM transaksi
